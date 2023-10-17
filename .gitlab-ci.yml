@@ -28,4 +28,5 @@ push:
         - docker tag frontend $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
         - docker images
     script:
-        - docker-compose push
+        - docker push $CI_REGISTRY_IMAGE/backend:$BACKEND_IMAGE_TAG
+        - docker push $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
