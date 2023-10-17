@@ -41,8 +41,8 @@ deploy:
         - chmod 400 $SSH_SERVER_KEY
     script: 
         - scp -o StrictHostKeyChecking=no -i $SSH_SERVER_KEY ./docker-compose.yml ubuntu@$AWS_SERVER_HOST:/home/ubuntu
-    environment:
-        name: compose-server
-        url: $SERVER_DOMAIN
+    # environment:
+    #     name: compose-server
+    #     url: $SERVER_DOMAIN
 
     
