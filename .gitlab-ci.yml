@@ -45,7 +45,7 @@ deploy:
             export MYSQL_DATABASE=$MYSQL_DATABASE &&
             export MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD && 
             docker-compose down &&
-            docker-compose up"
+            docker-compose up --no-build"
     environment:
         name: compose-server
         url: $SERVER_DOMAIN
