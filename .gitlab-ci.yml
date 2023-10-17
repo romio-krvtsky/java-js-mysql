@@ -1,10 +1,12 @@
+services:
+    - docker:dind
+
 stages:
     - build
     - test
     - deploy
 
 build:
-    image: docker/compose
     stage: build
     script: 
         - docker-compose build
