@@ -4,6 +4,7 @@ stages:
     - deploy
 
 build:
+    image: docker/compose
     stage: build
     script: 
         - docker-compose build
