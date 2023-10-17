@@ -35,7 +35,6 @@ push:
         - docker push $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
 
 deploy:
-    image: shell
     stage: deploy
     before_script:
         - chmod 400 $SSH_SERVER_KEY
