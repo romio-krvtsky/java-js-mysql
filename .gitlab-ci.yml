@@ -1,4 +1,3 @@
-image: docker/compose:1.29.2
 
 variables:
     BACKEND_IMAGE_TAG: "1.0"
@@ -13,16 +12,19 @@ stages:
     - deploy
 
 build:
+    image: docker/compose:1.29.2
     stage: build
     script: 
         - docker-compose build
 
 test:
+    image: docker/compose:1.29.2
     stage: test
     script:
         - docker-compose run frontend npm test -- --watchAll=false
 
 push:
+    image: docker/compose:1.29.2
     stage: push
     before_script:
         - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
@@ -33,6 +35,7 @@ push:
         - docker push $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
 
 deploy:
+    image: shell
     stage: deploy
     before_script:
         - chmod 400 $SSH_SERVER_KEY
