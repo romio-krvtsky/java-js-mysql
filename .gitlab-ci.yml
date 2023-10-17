@@ -40,8 +40,14 @@ deploy:
         - chmod 400 $SSH_SERVER_KEY
     script: 
         - scp -o StrictHostKeyChecking=no -i $SSH_SERVER_KEY ./docker-compose.yml ubuntu@$AWS_SERVER_HOST:/home/ubuntu
-    # environment:
-    #     name: compose-server
-    #     url: $SERVER_DOMAIN
+        - ssh -o StrictHostKeyChecking=no -i $SSH_SERVER_KEY ubuntu@$AWS_SERVER_HOST "
+            docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY &&
+            export MYSQL_DATABASE=$MYSQL_DATABASE &&
+            export MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD && 
+            docker-compose down &&
+            docker-compose up"
+    environment:
+        name: compose-server
+        url: $SERVER_DOMAIN
 
     
