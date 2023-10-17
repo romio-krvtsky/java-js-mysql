@@ -1,5 +1,9 @@
 image: docker/compose:1.29.2
 
+variables:
+    BACKEND_IMAGE_TAG: "1.0"
+    FRONTEND_IMAGE_TAG: "1.0"
+
 stages:
     - build
     - test
@@ -20,5 +24,8 @@ push:
     stage: push
     before_script:
         - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker tag backend $CI_REGISTRY_IMAGE/backend:$BACKEND_IMAGE_TAG
+        - docker tag frontend $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
+        - docker images
     script:
         - docker-compose push
