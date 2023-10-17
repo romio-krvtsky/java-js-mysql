@@ -31,7 +31,7 @@ services:
       - java_mysql
 
   backend:
-    image: backend
+    image: $CI_REGISTRY_IMAGE/backend:$BACKEND_IMAGE_TAG
     restart: always
     container_name: backend
     build: ./backend
@@ -44,20 +44,20 @@ services:
       timeout: 2s
       retries: 10
     ports:
-      - "8080:8080"
+      - "8080"
     networks:
       - java_js
       - java_mysql
 
   frontend:
-    image: frontend
+    image: $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
     container_name: frontend
     build: ./frontend
     depends_on:
       backend:
         condition: service_healthy
     ports:
-      - "3000:3000"
+      - "80:3000"
     networks:
       - java_js
 
