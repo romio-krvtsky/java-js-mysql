@@ -31,6 +31,7 @@ services:
       - java_mysql
 
   backend:
+    image: backend
     restart: always
     container_name: backend
     build: ./backend
@@ -49,6 +50,7 @@ services:
       - java_mysql
 
   frontend:
+    image: frontend
     container_name: frontend
     build: ./frontend
     depends_on:
