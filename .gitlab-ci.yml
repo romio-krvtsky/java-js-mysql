@@ -47,7 +47,7 @@ deploy:
             export MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD &&
             export BACKEND_IMAGE_TAG=$BACKEND_IMAGE_TAG &&
             export FRONTEND_IMAGE_TAG=$FRONTEND_IMAGE_TAG &&
-            export $CI_REGISTRY_IMAGE=CI_REGISTRY_IMAGE
+            export $CI_REGISTRY_IMAGE=CI_REGISTRY_IMAGE &&
             docker-compose down &&
             docker-compose up --no-build"
     environment:
