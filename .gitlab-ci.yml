@@ -46,7 +46,7 @@ deploy:
             docker-compose down &&
             docker-compose up --no-build -d"
     environment:
-        name: composeServer
+        name: development
         url: $SERVER_DOMAIN
 
     
