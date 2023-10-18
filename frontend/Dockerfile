@@ -1,11 +1,13 @@
-FROM node:16-alpine
+FROM node:16-alpine as build
 
 WORKDIR /app
 
 COPY . .
 
-RUN npm install
+RUN npm install 
 
-EXPOSE 3000
+CMD ["npm", "run", "build"]
 
-CMD ["npm", "start"]
+FROM nginx:1.13-alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
