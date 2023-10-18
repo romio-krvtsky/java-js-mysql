@@ -1,9 +1,9 @@
-
 variables:
-    BACKEND_IMAGE_TAG: "2.0"
-    FRONTEND_IMAGE_TAG: "2.0"
-    AWS_SERVER_HOST: 51.20.187.59
-    AWS_SERVER_DOMAIN: http://ec2-51-20-187-59.eu-north-1.compute.amazonaws.com
+    BACKEND_IMAGE_TAG: "3.0"
+    FRONTEND_IMAGE_TAG: "3.0"
+    AWS_SERVER_HOST: 51.20.108.41
+    AWS_SERVER_DOMAIN: http://ec2-51-20-108-41.eu-north-1.compute.amazonaws.com
+
 stages:
     - build
     - test
