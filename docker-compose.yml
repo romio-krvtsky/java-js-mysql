@@ -31,7 +31,7 @@ services:
       - java_mysql
 
   backend:
-    # image: $CI_REGISTRY_IMAGE/backend:$BACKEND_IMAGE_TAG
+    image: $CI_REGISTRY_IMAGE/backend:$BACKEND_IMAGE_TAG
     restart: always
     container_name: backend
     build: ./backend
@@ -50,9 +50,8 @@ services:
       - java_mysql
 
   frontend:
-    # image: $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
+    image: $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG
     build: ./frontend
-    image: frontprod
     container_name: frontend
     depends_on:
       backend:
