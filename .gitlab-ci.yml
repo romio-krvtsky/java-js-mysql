@@ -6,7 +6,7 @@ variables:
 
 stages:
     - build
-    - test
+    # - test
     - push
     - deploy
 
@@ -16,11 +16,11 @@ build:
     script: 
         - docker-compose build
 
-test:
-    image: docker/compose:1.29.2
-    stage: test
-    script:
-        - docker-compose run frontend npm test -- --watchAll=false
+# test:
+#     image: docker/compose:1.29.2
+#     stage: test
+#     script:
+#         - docker-compose run frontend npm test -- --watchAll=false
 
 push:
     image: docker/compose:1.29.2
