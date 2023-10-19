@@ -14,7 +14,7 @@ build:
     image: docker/compose:1.29.2
     stage: build
     script: 
-        - docker-compose build --build-arg AWS_SERVER_HOST=$AWS_SERVER_HOST 
+        - docker-compose build
 
 test:
     image: docker/compose:1.29.2
