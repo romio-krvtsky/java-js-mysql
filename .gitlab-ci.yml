@@ -43,6 +43,7 @@ deploy:
             export BACKEND_IMAGE_TAG=$BACKEND_IMAGE_TAG &&
             export FRONTEND_IMAGE_TAG=$FRONTEND_IMAGE_TAG &&
             export CI_REGISTRY_IMAGE=$CI_REGISTRY_IMAGE &&
+            export AWS_SERVER_HOST=$AWS_SERVER_HOST &&
             docker-compose down &&
             docker-compose up --no-build -d"
     environment:
