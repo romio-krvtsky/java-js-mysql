@@ -1,6 +1,6 @@
 variables:
-    BACKEND_IMAGE_TAG: "5.0"
-    FRONTEND_IMAGE_TAG: "5.0"
+    BACKEND_IMAGE_TAG: "10.0"
+    FRONTEND_IMAGE_TAG: "10.0"
     AWS_SERVER_HOST: "16.171.63.61"
     AWS_SERVER_DOMAIN: http://ec2-16-171-63-61.eu-north-1.compute.amazonaws.com
 
@@ -14,7 +14,7 @@ build:
     image: docker/compose:1.29.2
     stage: build
     script: 
-        - docker-compose build
+        - docker-compose build --no-cache
 
 test:
     image: docker/compose:1.29.2
