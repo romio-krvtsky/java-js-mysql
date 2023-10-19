@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 const awsHost = process.env.REACT_APP_AWS_SERVER_HOST
 
+
 export default function Student() {
   const paperStyle = { padding: '50px 20px', width: 600, margin: "20px auto" }
   const [name, setName] = useState('')
@@ -21,10 +22,14 @@ export default function Student() {
   const [students, setStudents] = useState([])
   const classes = useStyles();
 
+
   const handleClick = (e) => {
     e.preventDefault()
     const student = { name, address }
     console.log(student)
+
+
+
     fetch(`http://${awsHost}:8080/student/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
