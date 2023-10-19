@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/student")
-@CrossOrigin
 public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @CrossOrigin(origins="http://localhost:80")
+    @CrossOrigin
     @PostMapping("/add")
     public String add(@RequestBody Student student){
         studentService.saveStudent(student);
         return "New student is added";
     }
 
-    @CrossOrigin(origins="http://localhost:80")
+    @CrossOrigin
     @GetMapping("/getAll")
     public List<Student> list(){
         return studentService.getAllStudents();
