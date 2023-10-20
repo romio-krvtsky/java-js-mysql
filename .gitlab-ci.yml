@@ -20,7 +20,7 @@ test:
     image: docker/compose:1.29.2
     stage: test
     script:
-        - docker-compose run $CI_REGISTRY_IMAGE/frontend:$FRONTEND_IMAGE_TAG npm test -- --watchAll=false
+        - docker-compose run frontend npm test -- --watchAll=false
 
 push:
     image: docker/compose:1.29.2
