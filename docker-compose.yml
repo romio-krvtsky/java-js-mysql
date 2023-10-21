@@ -44,7 +44,7 @@ services:
       timeout: 2s
       retries: 10
     ports:
-      - "8080:8080"
+      - "8080"
     networks:
       - java_js
       - java_mysql
