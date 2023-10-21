@@ -1,14 +1,11 @@
 FROM node:16-alpine
 
-# ARG AWS_SERVER_HOST
-
-# ENV AWS_SERVER_HOST=${AWS_SERVER_HOST}
-
 WORKDIR /app
 
 COPY . .
 
-RUN npm install
+RUN npm install && \
+    npm install --save-dev http-proxy-middleware
 
 EXPOSE 3000
 
