@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const awsHost = process.env.REACT_APP_AWS_SERVER_HOST
-
+// const awsHost = process.env.REACT_APP_AWS_SERVER_HOST
 
 export default function Student() {
   const paperStyle = { padding: '50px 20px', width: 600, margin: "20px auto" }
@@ -28,9 +27,7 @@ export default function Student() {
     const student = { name, address }
     console.log(student)
 
-
-
-    fetch(`http://${awsHost}:8080/student/add`, {
+    fetch(`/student/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(student)
@@ -41,7 +38,7 @@ export default function Student() {
   }
 
   useEffect(() => {
-    fetch(`http://${awsHost}:8080/student/getAll`)
+    fetch(`/student/getAll`)
       .then(res => res.json())
       .then((result) => {
         setStudents(result);
