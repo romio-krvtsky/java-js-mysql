@@ -1,8 +1,8 @@
 variables:
     BACKEND_IMAGE_TAG: "10.0"
     FRONTEND_IMAGE_TAG: "10.0"
-    AWS_SERVER_HOST: "51.20.76.158"
-    AWS_SERVER_DOMAIN: http://ec2-51-20-76-158.eu-north-1.compute.amazonaws.com
+    AWS_SERVER_HOST: 13.48.106.113
+    AWS_SERVER_DOMAIN: http://ec2-13-48-106-113.eu-north-1.compute.amazonaws.com
 
 stages:
     - build
@@ -43,7 +43,6 @@ deploy:
             export BACKEND_IMAGE_TAG=$BACKEND_IMAGE_TAG &&
             export FRONTEND_IMAGE_TAG=$FRONTEND_IMAGE_TAG &&
             export CI_REGISTRY_IMAGE=$CI_REGISTRY_IMAGE &&
-            export AWS_SERVER_HOST=$AWS_SERVER_HOST &&
             docker-compose down &&
             docker-compose up --no-build -d"
     environment:
